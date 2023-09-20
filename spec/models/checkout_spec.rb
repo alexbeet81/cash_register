@@ -1,4 +1,4 @@
-require_relative '../lib/models/checkout'
+require_relative '../spec_helper.rb'
 
 describe Checkout do
   let(:checkout) { Checkout.new }

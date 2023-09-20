@@ -1,9 +1,4 @@
-require_relative '../lib/controllers/checkout_controller'
-require_relative '../lib/repositories/product_repository'
-require_relative '../lib/models/product'
-require_relative '../lib/models/checkout'
-require_relative '../lib/models/basket'
-require_relative '../lib/views/checkout_view'
+require_relative '../spec_helper.rb'
 
 describe CheckoutController do
   let(:product_repository) { instance_double("ProductRepository") }
@@ -31,7 +26,7 @@ describe CheckoutController do
     end
 
     context "When input is 'exit'" do
-      let(:input) { "EXIT" }
+      let(:input) { "exit" }
       
       it "exits" do
         controller.run

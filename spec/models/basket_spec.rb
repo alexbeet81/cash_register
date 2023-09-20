@@ -1,4 +1,4 @@
-require_relative '../lib/models/basket'
+require_relative '../spec_helper.rb'
 
 describe Basket do
   let(:basket) { Basket.new }

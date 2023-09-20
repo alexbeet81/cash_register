@@ -8,7 +8,7 @@ class ProductRepository
   end
 
   def find(code)
-    @products[code]
+    @products[code.to_sym]
   end
 
   def all
