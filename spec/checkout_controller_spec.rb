@@ -8,7 +8,10 @@ require_relative '../lib/views/checkout_view'
 describe CheckoutController do
   let(:product_repository) { instance_double("ProductRepository") }
   let(:checkout_view) { instance_double("CheckoutView", display_products: nil) }
-  let(:products) { [double("Product1"), double("Product2")] }
+  let(:green_tea) { Product.new('GR1', 'Green Tea', 3.11) }
+  let(:straberries) { Product.new('SR1', 'Strawberries', 5.00) }
+  let(:coffee) { Product.new('CF1', 'Coffee', 11.23) }
+  let(:products) { [green_tea, straberries, coffee] }
   let(:controller) { described_class.new(product_repository) }
   
   before do
