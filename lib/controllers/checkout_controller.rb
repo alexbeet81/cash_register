@@ -1,6 +1,7 @@
 class CheckoutController
-  def initialize(product_repository)
+  def initialize(product_repository, discount_repository)
     @product_repository = product_repository
+    @discount_repository = discount_repository
     @products = @product_repository.all
     @checkout = Checkout.new
     @view = CheckoutView.new
@@ -23,12 +24,21 @@ class CheckoutController
       elsif product = @product_repository.find(input)
         # Add product to checkout.
         @checkout.scan(product)
-        #display confirmation message
+        # Apply discount
+        discount_serivce(product).apply_discount
+        # Display confirmation message
         @view.confirmation_message(product)
       else
         # Display no product found message.
         @view.product_not_recognised(input)
       end
     end
+  end
+
+  private
+
+  def discount_serivce(product)
+    discount = @discount_repository.find(product.code)
+    DiscountService.new(product, discount, @checkout)
   end
 end

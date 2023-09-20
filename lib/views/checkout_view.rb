@@ -28,7 +28,7 @@ class CheckoutView
     else
       basket.products.each do |product|
         puts "--------------------------------------------------------"
-        puts "| #{product.code} | #{product.name} | #{product.price} |"
+        puts "| #{product.code} | #{product.name} | #{product.price.round(2)} |"
         puts "--------------------------------------------------------"
       end
     end
@@ -36,7 +36,7 @@ class CheckoutView
 
   def display_total(total)
     puts "\n*** TOTAL ***"
-    puts "| #{total}€ |"
+    puts "| #{total.round(2)}€ |"
     puts "********"
   end
 end
