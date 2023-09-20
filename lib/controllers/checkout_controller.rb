@@ -11,6 +11,7 @@ class CheckoutController
       # Display products to user
       @view.display_products(@products)
       #display checkout
+      @view.display_checkout(@checkout.basket)
 
       # Ask user for product code
       input = @view.get_product_code

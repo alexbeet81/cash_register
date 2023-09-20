@@ -18,4 +18,19 @@ class CheckoutView
   def product_not_recognised(input)
     puts "\nSorry, we can't find a product with code '#{input}'. Please try again."
   end
+
+  def display_checkout(basket)
+    puts "\n***** Checkout *******"
+    if basket.products.empty?
+      puts "------------------------"
+      puts "| YOUR BASKET IS EMPTY |"
+      puts "------------------------"
+    else
+      basket.products.each do |product|
+        puts "--------------------------------------------------------"
+        puts "| #{product.code} | #{product.name} | #{product.price} |"
+        puts "--------------------------------------------------------"
+      end
+    end
+  end
 end
