@@ -35,5 +35,16 @@ describe Checkout do
       expect(basket.products).to include(product)
       expect(checkout.total).to eq(3.11)
     end
+
+    it "returns 6.22 after adding 'Green Tea' twice" do
+      expect(basket.products.length).to eq(0)
+      expect(checkout.total).to eq(0.0)
+      checkout.scan(product)
+      checkout.scan(product)
+
+      expect(basket.products.length).to eq(2)
+      expect(basket.products).to include(product)
+      expect(checkout.total).to eq(6.22)
+    end
   end
 end

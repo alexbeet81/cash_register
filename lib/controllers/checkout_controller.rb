@@ -7,10 +7,11 @@ class CheckoutController
   end
 
   def run
-
     loop do
       # Display products to user
       @view.display_products(@products)
+      #display checkout
+
       # Ask user for product code
       input = @view.get_product_code
       # Search product repo for product
@@ -19,11 +20,11 @@ class CheckoutController
       elsif product = @product_repository.find(input)
         # Add product to checkout.
         @checkout.scan(product)
-        #display add product to basket
-        #display checkout
-        
+        #display confirmation message
+        @view.confirmation_message(product)
       else
         # Display no product found message.
+        @view.product_not_recognised(input)
       end
     end
   end
