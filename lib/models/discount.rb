@@ -15,7 +15,7 @@ class Discount
     self.product_price - self.fixed_discount
   end
 
-  def percentage_price_after_discont
-    # TODO: Add Code
+  def percentage_price_after_discount
+    (self.product_price * self.percentage_discount)
   end
 end

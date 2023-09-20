@@ -59,37 +59,37 @@ describe DiscountService do
 
   describe "#apply_discount percentage" do
     let(:product) { Product.new("CF1", "Coffee", 11.23) }
-    let(:discount) { Discount.new(product_code: "SR1", product_threshold: 3, discount_type: "fixed", product_price: 5.00, fixed_discount: 0.5)}
+    let(:discount) { Discount.new(product_code: "CF1", product_threshold: 3, discount_type: "percentage", product_price: 11.23, percentage_discount: (2.0 / 3.0))}
     let(:checkout) { Checkout.new }
 
     let(:service) { described_class.new(product, discount, checkout) }
 
     it "applys the correct discount after the threshold has been reached" do
       expect(checkout.basket.products.length).to eq(0)
-      expect(product.price).to eq(5.00)
+      expect(product.price).to eq(11.23)
 
       3.times do
         checkout.scan(product)
       end
 
       service.apply_discount
-      expect(product.price).to eq(4.50)
+      expect(product.price.round(2)).to eq(7.49)
       expect(checkout.basket.products.length).to eq(3)
-      expect(checkout.total).to eq(13.50)
+      expect(checkout.total).to eq(22.46)
     end
 
     it "doesn't apply the discount before the threshold has been reached" do
       expect(checkout.basket.products.length).to eq(0)
-      expect(product.price).to eq(5.00)
+      expect(product.price).to eq(11.23)
 
       2.times do
         checkout.scan(product)
       end
 
       service.apply_discount
-      expect(product.price).to eq(5.00)
+      expect(product.price).to eq(11.23)
       expect(checkout.basket.products.length).to eq(2)
-      expect(checkout.total).to eq(10.00)
+      expect(checkout.total).to eq(22.46)
     end
   end
 end
