@@ -12,7 +12,7 @@ class CheckoutController
       # Display products to user
       @view.display_products(@products)
       #display checkout
-      @view.display_checkout(@checkout.basket)
+      @view.display_checkout(checkout_serivce.group_and_count_products(@checkout.basket.products))
       @view.display_total(@checkout.total)
 
       # Ask user for product code
@@ -39,5 +39,9 @@ class CheckoutController
   def discount_serivce(product)
     discount = @discount_repository.find(product.code)
     DiscountService.new(product, discount, @checkout)
+  end
+
+  def checkout_serivce
+    CheckoutService.new
   end
 end
