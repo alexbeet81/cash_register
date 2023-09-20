@@ -24,9 +24,9 @@ class CheckoutController
       elsif product = @product_repository.find(input)
         # Add product to checkout.
         @checkout.scan(product)
-        # Add discount
+        # Apply discount
         discount_serivce(product).apply_discount
-        #display confirmation message
+        # Display confirmation message
         @view.confirmation_message(product)
       else
         # Display no product found message.
