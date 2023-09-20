@@ -6,6 +6,7 @@ require_relative "lib/models/discount"
 require_relative "lib/views/checkout_view"
 require_relative "lib/repositories/product_repository"
 require_relative "lib/repositories/discount_repository"
+require_relative "lib/services/discount_service"
 
 product_repository = ProductRepository.new
 discount_repository = DiscountRepository.new
