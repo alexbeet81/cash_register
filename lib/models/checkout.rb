@@ -1,4 +1,8 @@
+require_relative "basket"
+
 class Checkout
+  attr_accessor :basket
+
   def initialize
     @basket = Basket.new
   end
