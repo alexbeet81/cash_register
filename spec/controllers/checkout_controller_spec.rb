@@ -2,12 +2,13 @@ require_relative '../spec_helper.rb'
 
 describe CheckoutController do
   let(:product_repository) { instance_double("ProductRepository") }
+  let(:discount_repository) { instance_double("DiscountRepository") }
   let(:checkout_view) { instance_double("CheckoutView", display_products: nil) }
   let(:green_tea) { Product.new('GR1', 'Green Tea', 3.11) }
   let(:straberries) { Product.new('SR1', 'Strawberries', 5.00) }
   let(:coffee) { Product.new('CF1', 'Coffee', 11.23) }
   let(:products) { [green_tea, straberries, coffee] }
-  let(:controller) { described_class.new(product_repository) }
+  let(:controller) { described_class.new(product_repository, discount_repository) }
   
   before do
     allow(CheckoutView).to receive(:new).and_return(checkout_view)

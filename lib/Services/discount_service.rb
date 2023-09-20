@@ -11,7 +11,7 @@ class DiscountService
     if count >= @discount.product_threshold
       case @discount.discount_type
       when "fixed"
-      when "percentage"
+          @checkout.basket.products.each { |p| p.price = @discount.fixed_price_after_discount if p.code == @discount.product_code }
       when "free"
         @discount.free_items.times do
           @checkout.scan(Product.new(@product.code, @product.name, 0.0))
