@@ -13,6 +13,8 @@ class CheckoutController
       #display checkout
       @view.display_checkout(@checkout.basket)
 
+      @view.display_total(@checkout.total)
+
       # Ask user for product code
       input = @view.get_product_code
       # Search product repo for product

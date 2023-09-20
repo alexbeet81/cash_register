@@ -33,4 +33,10 @@ class CheckoutView
       end
     end
   end
+
+  def display_total(total)
+    puts "\n*** TOTAL ***"
+    puts "| #{total}€ |"
+    puts "********"
+  end
 end
