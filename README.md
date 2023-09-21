@@ -35,6 +35,15 @@ Used RSpec for unit testing.
 Mocked certain classes like 'ProductRepository' to isolate tests.
 Tested key functionalities such as adding products to the basket and applying discounts.
 
+Note: Tests that specifically cover the spec test data can be found by running 'rspec spec/services/discount_service_spec.rb:96'
+
+**Test data**
+| Basket | Total price expected |  
+|--|--|
+| GR1,GR1 |  3.11€ |
+| SR1,SR1,GR1,SR1 |  16.61€ |
+| GR1,CF1,SR1,CF1,CF1 |  30.57€ |
+
 ## Dependencies
 
 Ruby 2.7.3
@@ -49,6 +58,7 @@ Implement persistence so the basket and product details can be stored and retrie
 Expend on the 'DiscountService' to allow for a wider range of discount types.
 Implement functionality to allow user to remove items from their baskets.
 Implement functionality to allow user too add additional products and discount rules via the interface.
+Identify and add additional edge cases to tests.
 
 ## Running the App
 

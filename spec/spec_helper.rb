@@ -7,6 +7,7 @@ require_relative '../lib/models/basket'
 require_relative '../lib/models/discount'
 require_relative '../lib/views/checkout_view'
 require_relative '../lib/services/discount_service'
+require_relative '../lib/services/checkout_serivce'
 
 def count_products(basket, code)
   basket.products.count { | product | product.code == code }
