@@ -1,5 +1,5 @@
 # cash_register
-
+## by Alex Pritchard Technical Challenge for Frédéric Cerdan @ Amenitiz
 ## Usage
 
 Ruby 2.7.3
